@@ -253,7 +253,7 @@ def ui():
 
     with gr.Tab("Chat", elem_id="chatbot-clinic-chat-tab"):
         with gr.Row():
-            with gr.Column(scale=3):
+            with gr.Column(scale=5):
                 gr.Markdown(
                     "Click the button to start/stop the chat. Switch to the"
                     ' "Statistics" tab at any time to see an analysis of the data'
@@ -264,7 +264,7 @@ def ui():
                     " all messages and statistics.</span> They are not saved to disk"
                     " and must be manually copied if they are needed later."
                 )
-            with gr.Column(scale=1):
+            with gr.Column(scale=1, min_width=100):
                 start_chat = gr.Button("Start chat", variant="primary")
                 stop_chat = gr.Button("Stop chat", variant="stop", visible=False)
 
@@ -281,7 +281,7 @@ def ui():
                     visible=False,
                     elem_id="chatbot-clinic-message",
                 )
-            with gr.Column(scale=1):
+            with gr.Column(scale=1, min_width=60):
                 send = gr.Button("Send", variant="primary", visible=False)
 
     with gr.Tab("Statistics"):
