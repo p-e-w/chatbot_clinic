@@ -539,13 +539,13 @@ def ui():
         show_progress="hidden",
     )
 
-    gr.on(
-        triggers=[message.submit, send.click],
-        fn=do_send,
-        inputs={state, message},
-        outputs=[state, chatbot, message, send],
-        show_progress="hidden",
-    )
+    for event in [message.submit, send.click]:
+        event(
+            do_send,
+            inputs={state, message},
+            outputs=[state, chatbot, message, send],
+            show_progress="hidden",
+        )
 
     chatbot.select(
         do_select,
